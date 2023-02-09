@@ -1,0 +1,29 @@
+//lex.l
+%{
+int wc=0,lc=0,ch=0,sp=0;tc=0;
+
+%}
+
+%%
+
+[\n] {lc++;ch++;}
+[\t] {tc++;ch++;}
+[ ] {sp++;ch++;}
+[^ \n\t]+ {ch += yyleng; wc++;}
+
+%%
+
+int yywrap()
+{
+return 1;
+}
+
+int main(int argc , char* argv[]){
+
+yyin = fopen(argv[1] , "r");
+yylex();
+printf("lines = %d \n chars = %d \n words=%d \n space =%d tabs =%d",lc,ch,wc,sp,tc);
+return 0;
+}
+
+//
