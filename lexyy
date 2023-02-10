@@ -13,6 +13,27 @@ int wc=0,lc=0,ch=0,sp=0;tc=0;
 
 %%
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int yywrap()
 {
 return 1;
